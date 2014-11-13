@@ -99,6 +99,10 @@ form{
 		cursor: pointer;
 	}
 
+	form input[type="text"]{
+		width: 460px;
+	}
+
 
 input, button, select{
 	border: none;
