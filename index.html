@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Suggest a Movie</title>
+    <link href="css/index.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h2>Me indique um filme</h2>
+      <p>
+        Quer assistir um filme e não sabe qual?
+      </p>
+    </header>
+
+    <div id="user-request">
+      <form>
+        <label for="year">Ano</label>
+        <input type="number" min="1500" max="2014" name="year" />
+
+        <label for="actors">Atores</label>
+        <input type="text" name="actors" />
+
+        <label for="other-information">Outras informações</label>
+        <input type="text" name="other-information" />
+
+        <label for="category">Categoria</label>
+        <select name="category">
+          <option value=""></option>
+          <option value="Ação">Ação</option>
+          <option value="Ficção">Ficção</option>
+          <option value="Drama">Drama</option>
+          <option value="Comédia">Comédia</option>
+          <option value="Terror">Terror</option>
+          <option value="Musical">Musical</option>
+          <option value="Documentário">Documentário</option>
+          <option value="Épico">Épico</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Suspense">Suspense</option>
+          <option value="Faroeste">Faroeste</option>
+          <option value="Romance">Romance</option>
+          <option value="Policial">Policial</option>
+          <option value="Guerra">Guerra</option>
+          <option value="Clássico">Clássico</option>
+          <option value="Animação">Animação</option>
+          <option value="Infantil">Infantil</option>
+        </select>
+
+        <input type="submit" name="Sugestão">
+      </form>
+    </div>
+
+    <div id="suggestion">
+      <h2>Título do filme</h2>
+
+      <div id="movie_image">
+        <img src="" />
+      </div>
+
+      <div id="movie_info">
+        <p>
+          Ano:
+        </p>
+        <p>
+          Categoria:
+        </p>
+        <p>
+          Sinopse:
+        </p>
+      </div>
+
+      <div id="movie_trailer">
+        <h4>Trailer: </h4>
+        <img srg="" />
+      </div>
+
+      <div id="movie_actors">
+        <ul>
+          <li>Ator</li>
+          <li>Atriz</li>
+        </ul>
+      </div>
+
+      <div id="options">
+        <ul>
+          <li><button name="again">Outro filme semelhante</button></li>
+          <li><button name="new_search">Nova busca</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Individual scripts -->
+    <script src="js/suggest.js"></script>
+  </body>
+</html>
