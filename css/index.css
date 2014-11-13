@@ -6,9 +6,9 @@ html, body{
 	height: 100%;
 	margin: 0;
 	font-family: 'Montserrat', sans-serif;
-	overflow-y: hidden;
 	color: #fff;
 	font-size: 20px;
+	background-color: #e3483e;
 }
 
 
@@ -43,17 +43,19 @@ header{
 
 section{
 	display: table;
-	height: 85%;
+	height: 82%;
 	width: 100%;
 }
 
-#user-request{
-	background-color: #1CBABC;
-}
+	section#user-request{
+		background-color: #1CBABC;
+	}
 
-#suggestion{
-	background-color: #e3483e;
-}
+	section#suggestion{
+		display: none;
+		background-color: #e3483e;
+	}
+
 
 article{
 	width: 50%;
@@ -63,6 +65,7 @@ article{
 	text-align: center;
 }
 
+
 form{
 	width: 27em;
 	margin: 0 auto;
@@ -70,16 +73,32 @@ form{
 	text-align: left;
 }
 
-.row{
-	height: 80px;
-	border-bottom: 1px solid #666;
-	padding-top: 15px;
-	padding-left: 10px;
-}
-
-	.row#bottom{
-		border-bottom: none;
+	form .row{
+		height: 80px;
+		border-bottom: 1px solid #666;
+		padding-top: 15px;
+		padding-left: 10px;
 	}
+
+		form .row#bottom{
+			border-bottom: none;
+		}
+
+	form label{
+		display:inline-block;
+		float: left;
+		width: 300px;
+		padding: 17.5px 0;
+		font-size: 25px;
+	}
+
+	form #submit{
+		margin-left: 300px;
+		background-color: #e3483e;
+		color: white;
+		cursor: pointer;
+	}
+
 
 input, button, select{
 	border: none;
@@ -89,17 +108,31 @@ input, button, select{
 	color: #1CBABC;
 }
 
-form label{
-	display:inline-block;
-	float: left;
-	width: 300px;
-	padding: 17.5px 0;
-	font-size: 25px;
+div.painel{
+	width: 20%;
+	height: 500px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
 }
 
-form #submit{
-	margin-left: 300px;
-	background-color: #e3483e;
+div.painel{
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+div.painel p{
+	margin-top: 0;
+}
+
+#suggestion button{
+	margin: 10px;
 	color: white;
+	background-color: #1CBABC;
 	cursor: pointer;
+}
+
+ul{
+	list-style: none;
+	padding: 0;
 }
