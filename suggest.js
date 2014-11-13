@@ -15,6 +15,7 @@ $(document).ready(function(){
 
 		$.ajax("test.html")
 		  .done(function(data) {
+		  	code = $.parseHTML(data);
 		  })
 			.fail(function(jqXHR, textStatus, errorThrown) {
 			  alert(textStatus);
