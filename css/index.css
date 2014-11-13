@@ -51,10 +51,11 @@ section{
 		background-color: #1CBABC;
 	}
 
-	section#suggestion{
+	section#suggestion, section#error{
 		display: none;
 		background-color: #e3483e;
 	}
+
 
 
 article{
@@ -129,7 +130,7 @@ div.painel p{
 	margin-top: 0;
 }
 
-#suggestion button{
+button{
 	margin: 10px;
 	color: white;
 	background-color: #1CBABC;
@@ -139,4 +140,14 @@ div.painel p{
 ul{
 	list-style: none;
 	padding: 0;
+}
+
+section#error div#exclamation-error{
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	border-radius: 100%;
+	background-color: white;
+	color: red;
+	font-size: 85px;
 }
