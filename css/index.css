@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Fugaz+One);
+@import url(http://fonts.googleapis.com/css?family=Fondamento:400italic,400);
+
+html, body{
+	height: 100%;
+	margin: 0;
+	font-family: 'Fondamento', cursive;
+	overflow-y: hidden;
+	color: #444;
+	font-size: 20px;
+}
+
+
+header{
+	height: 15%;
+	min-height: 140px;
+	min-width: 700px;
+	padding-left: 5%;
+	padding-top: 30px;
+	background-image: url("../imgs/back1.jpg");
+ 	background-repeat: repeat;
+}
+
+	header h2{
+		margin: 0;
+		font-family: 'Fugaz One', cursive;
+		font-size: 50pt;
+		text-shadow: -1px 0 #DCDCDC, 0 1px #DCDCDC, 1px 0 #DCDCDC, 0 -1px #DCDCDC;
+	}
+
+	header p{
+		margin: 0;
+		font-size: 15pt;
+		color: white;
+	}
+
+
+section{
+	display: table;
+	height: 85%;
+	width: 100%;
+}
+
+#user-request{
+	background-color: #DDF;
+}
+
+#suggestion{
+	background-color: #FDD;
+}
+
+article{
+	width: 50%;
+	margin: auto;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+input, button{
+	border-radius: 5px;
+}
