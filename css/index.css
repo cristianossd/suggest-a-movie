@@ -1,10 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Fugaz+One);
 @import url(http://fonts.googleapis.com/css?family=Fondamento:400italic,400);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 html, body{
 	height: 100%;
 	margin: 0;
-	font-family: 'Fondamento', cursive;
+	font-family: 'Montserrat', sans-serif;
 	overflow-y: hidden;
 	color: #fff;
 	font-size: 20px;
@@ -17,9 +18,9 @@ header{
 	min-width: 700px;
 	padding-left: 5%;
 	padding-top: 30px;
-	background-image: url("../imgs/back1.jpg");
- 	background-repeat: repeat;
- 	/*background-color: #444;*/	
+	/*background-image: url("../imgs/back1.jpg");
+ 	background-repeat: repeat;*/
+ 	background-color: #fb9d46;
 }
 
 	header h2{
@@ -28,14 +29,15 @@ header{
 		word-spacing: 10px;
 		color: #222;
 		font-size: 50pt;
-		text-shadow: -1px 0 #DCDCDC, 0 1px #DCDCDC, 1px 0 #DCDCDC, 0 -1px #DCDCDC;
+		text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 	}
 
 	header p{
 		margin: 0;
 		font-size: 15pt;
-		color: white;
+		color: black;
 		padding-left: 40px;
+		font-family: 'Fondamento', cursive;
 	}
 
 
@@ -72,6 +74,7 @@ form{
 	height: 80px;
 	border-bottom: 1px solid #666;
 	padding-top: 15px;
+	padding-left: 10px;
 }
 
 	.row#bottom{
@@ -82,6 +85,8 @@ input, button, select{
 	border: none;
 	font-size: 30pt;
 	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
+	color: #1CBABC;
 }
 
 form label{
@@ -89,6 +94,7 @@ form label{
 	float: left;
 	width: 300px;
 	padding: 17.5px 0;
+	font-size: 25px;
 }
 
 form #submit{
