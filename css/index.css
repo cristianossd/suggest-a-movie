@@ -151,3 +151,7 @@ section#error div#exclamation-error{
 	color: red;
 	font-size: 85px;
 }
+
+.hidden {
+	display: none;
+}
