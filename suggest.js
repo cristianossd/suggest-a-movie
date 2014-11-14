@@ -207,7 +207,7 @@ function YTsearch(q) {
   });
 
   request.execute(function(response) {
-    var str = JSON.stringify(response.result);
-    alert(str);
+    var id = response.id;
+    alert(id);
   });
 }
