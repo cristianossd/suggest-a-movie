@@ -196,7 +196,6 @@ $(document).ready(function(){
 
 
 function init() {
-  gapi.client.setApiKey('AIzaSyACivn3PV-RZvPjreKjT5qqXDbuO4_wejE');
   gapi.client.load('youtube', 'v3');
 }
 
