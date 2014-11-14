@@ -12,7 +12,7 @@ $(document).ready(function(){
 		otherInformation = $("form input[name='other-information']").val();
 		category = $("form select[name='category'] option:selected").val();
 
-		$.ajax("test.html")
+		$.ajax("movies.html")
 		  .done(function(data) {
 				$(".hidden").append($(data));
 		  	/*custom = $("#3 h2");
