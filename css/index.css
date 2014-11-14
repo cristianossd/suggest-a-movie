@@ -1,0 +1,166 @@
+@import url(http://fonts.googleapis.com/css?family=Fugaz+One);
+@import url(http://fonts.googleapis.com/css?family=Fondamento:400italic,400);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+html, body{
+	height: 100%;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	font-size: 20px;
+	background-color: #e3483e;
+}
+
+
+header{
+	height: 15%;
+	min-height: 140px;
+	min-width: 700px;
+	padding-left: 5%;
+	padding-top: 30px;
+ 	background-color: #fb9d46;
+}
+
+	header h2{
+		margin: 0;
+		font-family: 'Fugaz One', cursive;
+		word-spacing: 10px;
+		color: #222;
+		font-size: 50pt;
+		text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+	}
+
+	header p{
+		margin: 0;
+		font-size: 15pt;
+		color: black;
+		padding-left: 40px;
+		font-family: 'Fondamento', cursive;
+	}
+
+
+section{
+	display: table;
+	height: 82%;
+	width: 100%;
+}
+
+	section#user-request{
+		background-color: #1CBABC;
+	}
+
+	section#suggestion, section#error{
+		display: none;
+		background-color: #e3483e;
+	}
+
+
+
+article{
+	width: 50%;
+	margin: auto;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+form{
+	width: 27em;
+	margin: 0 auto;
+	font-size: 30px;
+	text-align: left;
+}
+
+	form .row{
+		height: 80px;
+		border-bottom: 1px solid #666;
+		padding-top: 15px;
+		padding-left: 10px;
+	}
+
+		form .row#bottom{
+			border-bottom: none;
+		}
+
+	form label{
+		display:inline-block;
+		float: left;
+		width: 300px;
+		padding: 17.5px 0;
+		font-size: 25px;
+	}
+
+	form #submit{
+		margin-left: 300px;
+		background-color: #e3483e;
+		color: white;
+		cursor: pointer;
+		transition: background-color .35s;
+	}
+
+		form #submit:hover{
+			background-color: #F3584E;
+		}
+
+	form input[type="text"]{
+		width: 460px;
+	}
+
+
+input, button, select{
+	border: none;
+	font-size: 30pt;
+	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
+	color: #1CBABC;
+}
+
+div.painel{
+	width: 20%;
+	height: 500px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+}
+
+div.painel{
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+	div.painel p{
+		margin-top: 0;
+	}
+
+button{
+	margin: 10px;
+	color: white;
+	background-color: #1CBABC;
+	cursor: pointer;
+	transition: background-color .35s;
+}
+
+	button:hover{
+		background-color: #2CCACC;
+	}
+
+
+ul{
+	list-style: none;
+	padding: 0;
+}
+
+section#error div#exclamation-error{
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	border-radius: 100%;
+	background-color: white;
+	color: red;
+	font-size: 85px;
+}
+
+.hidden {
+	display: none;
+}

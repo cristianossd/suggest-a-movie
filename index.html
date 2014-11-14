@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 
   <head>
@@ -52,3 +53,139 @@
 
   </body>
 </html>
+=======
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Suggest a Movie</title>
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <h2>me indique um filme</h2>
+            <p>
+                Quer assistir um filme e não sabe qual?
+            </p>
+        </header>
+
+        <section id="user-request">
+        <article>
+            <form onsubmit="return false;">
+                <div class="row">
+                    <label for="year">Ano</label>
+                    <input type="number" min="1500" max="2014" name="year" />
+                </div>
+
+                <div class="row">
+                    <label for="category">Categoria</label>
+                    <select name="category">
+                        <option value=""></option>
+                        <option value="Ação">Ação</option>
+                        <option value="Ficção">Ficção</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Comédia">Comédia</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Documentário">Documentário</option>
+                        <option value="Épico">Épico</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Suspense">Suspense</option>
+                        <option value="Faroeste">Faroeste</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Policial">Policial</option>
+                        <option value="Guerra">Guerra</option>
+                        <option value="Clássico">Clássico</option>
+                        <option value="Animação">Animação</option>
+                        <option value="Infantil">Infantil</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <label for="actors">Atores</label>
+                    <input type="text" name="actors" />
+                </div>
+
+                <div class="row">
+                    <label for="other-information">Outras informações</label>
+                    <input type="text" name="other-information" />
+                </div>
+
+                <div class="row" id="bottom">
+                    <input type="submit" name="Sugestão" class="toggle-section" id="submit">
+                </div>
+            </form>
+        </article>
+    </section>
+
+    <section id="suggestion">
+        <article>
+            <h2 id="movie-title">Título do Filme</h2>
+
+            <div id="left" class="painel">
+                <div id="movie_image">
+                    <img src="" />
+                </div>
+                <br />
+                <div id="movie_trailer">
+                    <p>
+                        Trailer: 
+                    </p>
+                </div>
+            </div>
+
+            <div id="center" class="painel">
+                <div id="movie_info">
+                    <p>
+                        Ano: 
+                    </p>
+                    <p>
+                        Categoria: 
+                    </p>
+                    <p>
+                        Sinopse: 
+                    </p>
+                </div>
+            </div>
+
+            
+            <div id="right" class="painel">
+                <div id="movie_actors">
+                    <p>
+                        Atores:
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div id="options">
+                <form>
+                    <button type="submit" name="again" id="again">Outro filme semelhante</button>
+                </form>
+                <button name="new_search" class="toggle-section">Nova busca</button>
+            </div>
+
+        </article>
+    </section>
+
+    <section id="error">
+        <article>
+            <div id="exclamation-error">!</div>
+            <h2>Ops!</h2>
+            <p>Não encontramos nenhum filme com essa especificação.</p>
+            <button name="retornar" class="toggle-section">Retornar</button>
+        </article>
+    </section>
+
+    <div class='hidden'>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Individual scripts -->
+    <script src="suggest.js"></script>
+    <script src="js/frontend.js"></script>
+  </body>
+</html>
+>>>>>>> origin/master
