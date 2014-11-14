@@ -202,7 +202,8 @@ function init() {
 function YTsearch(q) {
   var request = gapi.client.youtube.search.list({
     q: q + " trailer",
-    part: 'snippet'
+    part: 'snippet',
+    key: 'AIzaSyACivn3PV-RZvPjreKjT5qqXDbuO4_wejE'
   });
 
   request.execute(function(response) {
