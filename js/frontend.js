@@ -9,6 +9,8 @@ function resultadoBusca(error){
 		$("#user-request .row").slideToggle("fast");
 		$("#error").slideToggle("fast");
 	}
+
+	return false;
 }
 
 function addTrailer(video_id){
