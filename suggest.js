@@ -9,18 +9,11 @@ $(document).ready(function(){
 		actors = $("form input[name='actors']").val();
 		actor = actors.split(",");
 		toReplace = /\s/g;
-		for (i=0; i<actor.length; i++) {
-			if (actor[i].charAt(0) == " ")
-				actor[i].replaceAt(0, "");
-			if (actor[i].charAt(actor[i].length-1) == " ")
-				actor[i].replaceAt(actor[i].length-1, "");
-			//actor[i] = actor[i].replace(toReplace, "");
-		}
 
 		otherInformation = $("form input[name='other-information']").val();
 		category = $("form select[name='category'] option:selected").val();
 
-		$.ajax("movies.html")
+		$.ajax("test.html")
 		  .done(function(data) {
 				$(".hidden").append($(data));
 		  	/*custom = $("#3 h2");
@@ -117,9 +110,10 @@ $(document).ready(function(){
 
 	  					if (actors != "") {
 		  					custom = id + " .actors";
-			  				for (j=0; j<actor.length; j++)
-			  					if ($(".hidden").find(custom).text().indexOf(actor[i]) > -1)
+			  				for (j=0; j<actor.length; j++) {
+			  					if ($(".hidden").find(custom).text().indexOf(actor[j]) > -1)
 			  						count++;
+			  				}
 			  				if (count == actor.length)
 			  					resultActors = true;
 			  				else
