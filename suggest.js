@@ -1,6 +1,10 @@
 $(document).ready(function(){
-	$("form").submit(function() {
+	$("form").submit(function(event) {
 		event.preventDefault();
+
+		var estado = $("#user-request").css("display");
+		$("#loading").css("display", "table");
+
 		year = $("form input[name='year']").val();
 		actors = $("form input[name='actors']").val();
 		actor = actors.split(",");
@@ -14,14 +18,14 @@ $(document).ready(function(){
 
 		$.ajax("movies.html")
 		  .done(function(data) {
-		  	$(".hidden").append($(data));
+				$(".hidden").append($(data));
 		  	/*custom = $("#3 h2");
 		  	alert($(".hidden").find(custom).text());
 		  	if ($(".hidden").find("#2").text() == "")
 		  		alert("empty");
 		  	*/
 		  	var matched = new Array(), resultTitle, resultYear, resultActors, resultOtherInformation, resultCategory,
-		  	outImage, outTitle, outYear, outSinpsis, outCategories, outActors, outTrailer;
+		  	outImage, outTitle, outYear, outSinopsis, outCategories, outActors, outTrailer;
 
 		  	if (year == "" && actors == "" && otherInformation == "" && category == "") {
 		  		do{
@@ -29,18 +33,42 @@ $(document).ready(function(){
 		  			id = "#" + match;
 		  		} while ($(".hidden").find(id).text() == "");
 
-		  		custom = id + " img";
-		  		outImage = $(".hidden").find(custom).attr("src");
-		  		custom = id + " h2";
-		  		outTitle = $(".hidden").find(custom).text();
-		  		custom = id + " span";
-		  		outYear = $(".hidden").find(custom).text();
-		  		custom = id + " .sinopsis";
-		  		outSinopsis = $(".hidden").find(custom).text();
-		  		custom = id + " .categories";
-		  		outCategories = $(".hidden").find(custom).text();
-		  		custom = id + " .actors";
-		  		outActors = $(".hidden").find(custom).text();
+			  		custom = id + " img";
+			  		outImage = $(".hidden").find(custom).attr("src");
+			  		$("#movie_image img").attr("src", outImage);
+
+			  		custom = id + " h2";
+			  		outTitle = $(".hidden").find(custom).html();
+			  		$("#movie_title").empty();
+			  		$("#movie_title").append(outTitle);
+
+			  		custom = id + " span";
+			  		outYear = $(".hidden").find(custom).html();
+			  		$("#movie_year").empty();
+			  		$("#movie_year").append(outYear);
+
+			  		custom = id + " .sinopsis";
+			  		outSinopsis = $(".hidden").find(custom).html();
+			  		$("#movie_sinopsis").empty();
+			  		$("#movie_sinopsis").append("Sinopse: <br />");
+			  		$("#movie_sinopsis").append(outSinopsis);
+
+			  		custom = id + " .categories";
+			  		outCategories = $(".hidden").find(custom).html();
+			  		$("#movie_category").empty();
+			  		$("#movie_category").append("Categoria: <br />");
+			  		$("#movie_category").append(outCategories);
+
+			  		custom = id + " .actors";
+			  		outActors = $(".hidden").find(custom).html();
+			  		$(".movie_actors").empty();
+			  		$(".movie_actors").append("Atores: ");
+			  		$(".movie_actors").append(outActors);
+
+			  		YTsearch(outTitle);
+
+			  		if (estado === "table")
+			  			resultadoBusca(false);
 
 		  		// call youtube API
 		  	}
@@ -103,29 +131,83 @@ $(document).ready(function(){
 		  		if (matched.length > 0) {
 		  			match = Math.floor(Math.random()*matched.length);
 		  			suggestionID = matched[match];
+
 			  		custom = suggestionID + " img";
 			  		outImage = $(".hidden").find(custom).attr("src");
+			  		$("#movie_image img").attr("src", outImage);
+
 			  		custom = suggestionID + " h2";
-			  		outTitle = $(".hidden").find(custom).text();
+			  		outTitle = $(".hidden").find(custom).html();
+			  		$("#movie_title").empty();
+			  		$("#movie_title").append(outTitle);
+
 			  		custom = suggestionID + " span";
-			  		outYear = $(".hidden").find(custom).text();
+			  		outYear = $(".hidden").find(custom).html();
+			  		$("#movie_year").empty();
+			  		$("#movie_year").append(outYear);
+
 			  		custom = suggestionID + " .sinopsis";
-			  		outSinopsis = $(".hidden").find(custom).text();
+			  		outSinopsis = $(".hidden").find(custom).html();
+			  		$("#movie_sinopsis").empty();
+			  		$("#movie_sinopsis").append("Sinopse: <br />");
+			  		$("#movie_sinopsis").append(outSinopsis);
+
 			  		custom = suggestionID + " .categories";
-			  		outCategories = $(".hidden").find(custom).text();
+			  		outCategories = $(".hidden").find(custom).html();
+			  		$("#movie_category").empty();
+			  		$("#movie_category").append("Categoria: <br />");
+			  		$("#movie_category").append(outCategories);
+
 			  		custom = suggestionID + " .actors";
-			  		outActors = $(".hidden").find(custom).text();
+			  		outActors = $(".hidden").find(custom).html();
+			  		$(".movie_actors").empty();
+			  		$(".movie_actors").append("Atores: ");
+			  		$(".movie_actors").append(outActors);
+
+
+					YTsearch(outTitle);
+
+			  		if (estado === "table")
+			  			resultadoBusca(false);
 
 			  		// call youtube API
+
+
 		  		}
 		  		else {
 		  			// No match
+		  			if (estado === "table")
+		  				resultadoBusca(true);
+		  			else{
+		  				$("#suggestion").slideToggle("fast");
+		  				$("#error").slideToggle("fast");
+		  			}
+
 		  		}
 		  	}
+		  	$("#loading").css("display", "none");
 		  })
 			.fail(function(jqXHR, textStatus, errorThrown) {
 			  alert(textStatus);
 			  alert(errorThrown);
 			});
 	});
-})
+});
+
+
+function init() {
+  gapi.client.setApiKey('AIzaSyACivn3PV-RZvPjreKjT5qqXDbuO4_wejE');
+  gapi.client.load('youtube', 'v3');
+}
+
+function YTsearch(q) {
+  var request = gapi.client.youtube.search.list({
+    q: q + " trailer",
+    part: 'snippet'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    alert(str);
+  });
+}
