@@ -75,7 +75,7 @@ article{
 
 
 form{
-	width: 27em;
+	width: 28em;
 	margin: 0 auto;
 	font-size: 30px;
 	text-align: left;
@@ -154,6 +154,7 @@ button{
 	background-color: #1CBABC;
 	cursor: pointer;
 	transition: background-color .35s;
+	display: inline-block;
 }
 
 	button:hover{

@@ -134,7 +134,10 @@ $(document).ready(function(){
 
 			  		custom = suggestionID + " img";
 			  		outImage = $(".hidden").find(custom).attr("src");
-			  		$("#movie_image img").attr("src", outImage);
+			  		$("#movie_image img").attr("src", "");
+					setTimeout(function(){
+					    $("#movie_image img").attr("src", outImage);
+					}, 0);
 
 			  		custom = suggestionID + " h2";
 			  		outTitle = $(".hidden").find(custom).html();
