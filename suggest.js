@@ -207,7 +207,7 @@ function YTsearch(q) {
   });
 
   request.execute(function(response) {
-    var id = response.id;
+    var id = response.result.items[0].id.videoId;
     alert(id);
   });
 }
