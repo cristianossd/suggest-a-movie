@@ -155,6 +155,7 @@ button{
 	cursor: pointer;
 	transition: background-color .35s;
 	display: inline-block;
+	float: left;
 }
 
 	button:hover{
