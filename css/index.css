@@ -54,6 +54,15 @@ section{
 		background-color: #e3483e;
 	}
 
+	section#loading{
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 10;
+		display: none;
+		background-color: rgba(100,100,100, .5);
+	}
 
 
 article{
@@ -66,11 +75,17 @@ article{
 
 
 form{
-	width: 27em;
+	width: 28em;
 	margin: 0 auto;
 	font-size: 30px;
 	text-align: left;
 }
+
+	#section form{
+		display: inline-block;
+		margin: 0;
+		width: auto;
+	}
 
 	form .row{
 		height: 80px;
@@ -139,6 +154,8 @@ button{
 	background-color: #1CBABC;
 	cursor: pointer;
 	transition: background-color .35s;
+	display: inline-block;
+	float: left;
 }
 
 	button:hover{
@@ -163,4 +180,16 @@ section#error div#exclamation-error{
 
 .hidden {
 	display: none;
+}
+
+section#loading div{
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	background-color: white;
+	border-radius: 10px;
+}
+
+section#loading div img{
+	margin: 18px;
 }

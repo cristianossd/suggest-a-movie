@@ -1,12 +1,20 @@
 $(document).ready(function(){
-	$("form").submit(function() {
+	$("form").submit(function(event) {
 		event.preventDefault();
+
+		var estado = $("#user-request").css("display");
+		$("#loading").css("display", "table");
+
 		year = $("form input[name='year']").val();
 		actors = $("form input[name='actors']").val();
 		actor = actors.split(",");
 		toReplace = /\s/g;
 		for (i=0; i<actor.length; i++) {
-			actor[i] = actor[i].replace(toReplace, "");
+			if (actor[i].charAt(0) == " ")
+				actor[i].replaceAt(0, "");
+			if (actor[i].charAt(actor[i].length-1) == " ")
+				actor[i].replaceAt(actor[i].length-1, "");
+			//actor[i] = actor[i].replace(toReplace, "");
 		}
 
 		otherInformation = $("form input[name='other-information']").val();
@@ -41,7 +49,6 @@ $(document).ready(function(){
 			  		custom = id + " span";
 			  		outYear = $(".hidden").find(custom).html();
 			  		$("#movie_year").empty();
-			  		$("#movie_year").append("Ano: <br />");
 			  		$("#movie_year").append(outYear);
 
 			  		custom = id + " .sinopsis";
@@ -61,6 +68,11 @@ $(document).ready(function(){
 			  		$(".movie_actors").empty();
 			  		$(".movie_actors").append("Atores: ");
 			  		$(".movie_actors").append(outActors);
+
+			  		YTsearch(outTitle);
+
+			  		if (estado === "table")
+			  			resultadoBusca(false);
 
 		  		// call youtube API
 		  	}
@@ -126,7 +138,10 @@ $(document).ready(function(){
 
 			  		custom = suggestionID + " img";
 			  		outImage = $(".hidden").find(custom).attr("src");
-			  		$("#movie_image img").attr("src", outImage);
+			  		$("#movie_image img").attr("src", "");
+					setTimeout(function(){
+					    $("#movie_image img").attr("src", outImage);
+					}, 0);
 
 			  		custom = suggestionID + " h2";
 			  		outTitle = $(".hidden").find(custom).html();
@@ -136,7 +151,6 @@ $(document).ready(function(){
 			  		custom = suggestionID + " span";
 			  		outYear = $(".hidden").find(custom).html();
 			  		$("#movie_year").empty();
-			  		$("#movie_year").append("Ano: <br />");
 			  		$("#movie_year").append(outYear);
 
 			  		custom = suggestionID + " .sinopsis";
@@ -157,16 +171,54 @@ $(document).ready(function(){
 			  		$(".movie_actors").append("Atores: ");
 			  		$(".movie_actors").append(outActors);
 
+
+					YTsearch(outTitle);
+
+			  		if (estado === "table")
+			  			resultadoBusca(false);
+
 			  		// call youtube API
+
+
 		  		}
 		  		else {
 		  			// No match
+		  			if (estado === "table")
+		  				resultadoBusca(true);
+		  			else{
+		  				$("#suggestion").slideToggle("fast");
+		  				$("#error").slideToggle("fast");
+		  			}
+
 		  		}
 		  	}
+		  	$("#loading").css("display", "none");
 		  })
 			.fail(function(jqXHR, textStatus, errorThrown) {
 			  alert(textStatus);
 			  alert(errorThrown);
 			});
 	});
-})
+});
+
+
+function init() {
+  gapi.client.load('youtube', 'v3');
+}
+
+function YTsearch(q) {
+  var request = gapi.client.youtube.search.list({
+    q: q + " trailer",
+    part: 'snippet',
+    key: 'AIzaSyACivn3PV-RZvPjreKjT5qqXDbuO4_wejE'
+  });
+
+  request.execute(function(response) {
+    var id = response.result.items[0].id.videoId;
+    addTrailer(id);
+  });
+}
+
+String.prototype.replaceAt = function(index, character) {
+	return this.substr(0, index) + character + this.substr(index + character.length);
+}
