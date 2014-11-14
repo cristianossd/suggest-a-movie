@@ -7,18 +7,17 @@ $(document).ready(function(){
 		toReplace = /\s/g;
 		for (i=0; i<actor.length; i++) {
 			actor[i] = actor[i].replace(toReplace, "");
-			alert(actor[i]);
 		}
 
 		otherInformation = $("form input[name='other-information']").val();
 		category = $("form select[name='category'] option:selected").val();
 
-		$.ajax("test.html")
+		$.ajax("movies.html")
 		  .done(function(data) {
 		  	$(".hidden").append($(data));
-		  	//custom = $("#3 h2");
-		  	//alert($(".hidden").find(custom).text());
-		  	/*if ($(".hidden").find("#2").text() == "")
+		  	/*custom = $("#3 h2");
+		  	alert($(".hidden").find(custom).text());
+		  	if ($(".hidden").find("#2").text() == "")
 		  		alert("empty");
 		  	*/
 		  	var matched = new Array(), resultTitle, resultYear, resultActors, resultOtherInformation, resultCategory,
@@ -26,7 +25,7 @@ $(document).ready(function(){
 
 		  	if (year == "" && actors == "" && otherInformation == "" && category == "") {
 		  		do{
-		  			match = Math.floor(Math.random()*2+3);
+		  			match = Math.floor(Math.random()*7494+3);
 		  			id = "#" + match;
 		  		} while ($(".hidden").find(id).text() == "");
 
@@ -42,9 +41,11 @@ $(document).ready(function(){
 		  		outCategories = $(".hidden").find(custom).text();
 		  		custom = id + " .actors";
 		  		outActors = $(".hidden").find(custom).text();
+
+		  		// call youtube API
 		  	}
 		  	else {
-		  		for (i=3; i<4; i++) {
+		  		for (i=3; i<7496; i++) {
 		  			var count = 0;
 
 		  			id = "#" + i;
@@ -101,13 +102,11 @@ $(document).ready(function(){
 
 		  		if (matched.length > 0) {
 		  			match = Math.floor(Math.random()*matched.length);
-		  			alert(match);
 		  			suggestionID = matched[match];
 			  		custom = suggestionID + " img";
 			  		outImage = $(".hidden").find(custom).attr("src");
 			  		custom = suggestionID + " h2";
 			  		outTitle = $(".hidden").find(custom).text();
-			  		alert(outTitle);
 			  		custom = suggestionID + " span";
 			  		outYear = $(".hidden").find(custom).text();
 			  		custom = suggestionID + " .sinopsis";
@@ -116,9 +115,11 @@ $(document).ready(function(){
 			  		outCategories = $(".hidden").find(custom).text();
 			  		custom = suggestionID + " .actors";
 			  		outActors = $(".hidden").find(custom).text();
+
+			  		// call youtube API
 		  		}
 		  		else {
-		  			// no movies matched
+		  			// No match
 		  		}
 		  	}
 		  })
